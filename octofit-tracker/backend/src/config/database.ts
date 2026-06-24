@@ -19,10 +19,10 @@ export async function connectDatabase(): Promise<void> {
 
 export function getApiBaseUrl(): string {
   if (CODESPACE_NAME) {
-    return `https://${CODESPACE_NAME}-8000.githubpreview.dev`;
+    return `https://${CODESPACE_NAME}-${SERVER_PORT}.app.github.dev`;
   }
 
-  return 'http://localhost:8000';
+  return `http://localhost:${SERVER_PORT}`;
 }
 
 export { mongoose };
