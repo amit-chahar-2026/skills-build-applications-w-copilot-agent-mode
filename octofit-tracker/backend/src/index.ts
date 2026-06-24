@@ -1,15 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import { users, teams, activities, leaderboard, workouts } from './routes/index.js';
-import { getApiBaseUrl } from './config.js';
-
-dotenv.config();
+import { getApiBaseUrl, MONGODB_URI, SERVER_PORT } from './config/database.js';
 
 const app = express();
-const port = process.env.PORT ? Number(process.env.PORT) : 8000;
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
+const port = SERVER_PORT;
+const mongoUri = MONGODB_URI;
 const apiBaseUrl = getApiBaseUrl();
 
 app.use(cors());

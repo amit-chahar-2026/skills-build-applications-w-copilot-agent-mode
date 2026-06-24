@@ -1,15 +1,13 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import { MONGODB_URI } from '../config/database.js';
 import User from '../models/user.js';
 import Team from '../models/team.js';
 import Activity from '../models/activity.js';
 import Workout from '../models/workout.js';
 import LeaderboardEntry from '../models/leaderboard.js';
 
-dotenv.config();
-
 // Seed the octofit_db database with test data
-const mongoUri = process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/octofit_db';
+const mongoUri = MONGODB_URI;
 
 async function seed() {
   await mongoose.connect(mongoUri);
